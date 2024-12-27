@@ -7,30 +7,16 @@ spring:
     password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
-  cloud:
-    loadbalancer:
-      ribbon:
-        enable: false
 
 server:
-  port: ${PORT:0}
+  port: 8081
 
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
-    fetch-registry: true
-    register-with-eureka: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: debug
+      defaultZone: http://localhost:8761/eureka/

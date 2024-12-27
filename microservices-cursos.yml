@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_microservicios_cursos
+    username: postgres
+    password: admin123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      microservices-cursos:
+        failure-rate-threshold: 50
+        sliding-window-size: 10
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        minimum-number-of-calls: 5

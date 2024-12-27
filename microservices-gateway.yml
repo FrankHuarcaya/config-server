@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: microservices-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: microservicio-usuarios
+          uri: lb://microservicio-usuarios
+          predicates:
+            - Path=/api/v1/persons/**
+        - id: microservicios-cursos
+          uri: lb://microservicios-cursos
+          predicates:
+            - Path=/api/v1/courses/**
+        - id: microservicios-cursos-enrollments
+          uri: lb://microservicios-cursos
+          predicates:
+            - Path=/api/v1/enrollments/**
+        - id: microservices-exams
+          uri: lb://microservices-exams
+          predicates:
+            - Path=/api/v1/exams/**
+        - id: microservices-exams-questions
+          uri: lb://microservices-exams
+          predicates:
+            - Path=/api/v1/questions/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: 8090
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      microservices-cursos:
+        failure-rate-threshold: 50
+        sliding-window-size: 10
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        minimum-number-of-calls: 5

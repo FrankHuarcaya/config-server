@@ -4,9 +4,13 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/db_microservices_exams
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
 
 server:
-  port: ${PORT:0}
+  port: 8083
 
 eureka:
   instance:

@@ -1,31 +1,47 @@
 spring:
   application:
     name: microservices-gateway
-server:
-  port: 8083
+
   cloud:
     gateway:
       routes:
-        - id: microservicio-usuarios
-          uri: lb://microservicio-usuarios
+        - id: microservices-users
+          uri: lb://microservices-users
           predicates:
             - Path=/api/v1/persons/**
-        - id: microservicios-cursos
-          uri: lb://microservicios-cursos
+          # filters:
+          #   - StripPrefix=1
+
+        - id: microservices-cursos
+          uri: lb://microservices-cursos
           predicates:
             - Path=/api/v1/courses/**
-        - id: microservicios-cursos-enrollments
-          uri: lb://microservicios-cursos
+          # filters:
+          #   - StripPrefix=1
+
+        - id: microservices-cursos
+          uri: lb://mmicroservices-cursos
           predicates:
             - Path=/api/v1/enrollments/**
+          # filters:
+          #   - StripPrefix=1
+
         - id: microservices-exams
           uri: lb://microservices-exams
           predicates:
             - Path=/api/v1/exams/**
-        - id: microservices-exams-questions
+          # filters:
+          #   - StripPrefix=1
+
+        - id: microservices-exams
           uri: lb://microservices-exams
           predicates:
             - Path=/api/v1/questions/**
+          # filters:
+          #   - StripPrefix=1
+
+server:
+  port: 8090
 
 eureka:
   client:
@@ -33,8 +49,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     register-with-eureka: true
     fetch-registry: true
-
-
 
 logging:
   level:

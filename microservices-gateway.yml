@@ -5,35 +5,35 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: microservices-users
+        - id: microservices-users-persons
           uri: lb://microservices-users
           predicates:
             - Path=/api/v1/persons/**
           # filters:
           #   - StripPrefix=1
 
-        - id: microservices-cursos
+        - id: microservices-cursos-courses
           uri: lb://microservices-cursos
           predicates:
             - Path=/api/v1/courses/**
           # filters:
           #   - StripPrefix=1
 
-        - id: microservices-cursos
+        - id: microservices-cursos-enrollments
           uri: lb://microservices-cursos
           predicates:
             - Path=/api/v1/enrollments/**
           # filters:
           #   - StripPrefix=1
 
-        - id: microservices-exams
+        - id: microservices-exams-exams
           uri: lb://microservices-exams
           predicates:
             - Path=/api/v1/exams/**
           # filters:
           #   - StripPrefix=1
 
-        - id: microservices-exams
+        - id: microservices-exams-questions
           uri: lb://microservices-exams
           predicates:
             - Path=/api/v1/questions/**

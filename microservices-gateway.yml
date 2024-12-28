@@ -20,7 +20,7 @@ spring:
           #   - StripPrefix=1
 
         - id: microservices-cursos
-          uri: lb://mmicroservices-cursos
+          uri: lb://microservices-cursos
           predicates:
             - Path=/api/v1/enrollments/**
           # filters:

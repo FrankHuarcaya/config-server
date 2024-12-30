@@ -39,6 +39,12 @@ spring:
             - Path=/api/v1/questions/**
           # filters:
           #   - StripPrefix=1
+            -
+        - id: microservices-payment-payments
+          uri: lb://microservices-payments
+          predicates:
+            - Path=/api/v1/payments/**
+
 
 server:
   port: 8090

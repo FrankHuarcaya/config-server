@@ -1,6 +1,8 @@
 spring:
+  application:
+    name: microservices-users
   datasource:
-    url: jdbc:mysql://localhost:3306/db_microservicios_examenes?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    url: jdbc:mysql://localhost:3306/db_microservicios_examenes
     username: root
     password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,11 +12,19 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
 
 server:
   port: 8081
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug

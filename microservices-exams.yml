@@ -13,11 +13,10 @@ server:
   port: 8083
 
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${random.value}
+
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka/
 
 logging:
   level:

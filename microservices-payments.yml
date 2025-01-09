@@ -3,7 +3,7 @@ spring:
     name: microservices-payments
   data:
     mongodb:
-      uri: mongodb://localhost:27017/db_microservices_payments
+      uri: mongodb://host.docker.internal:27017/db_microservices_payments
   cloud:
     loadbalancer:
       ribbon:

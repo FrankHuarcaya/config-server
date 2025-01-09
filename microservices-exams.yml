@@ -3,7 +3,7 @@ spring:
     name: microservices-exams
   data:
     mongodb:
-      uri: mongodb://localhost:27017/db_microservices_exams
+      uri: mongodb://host.docker.internal:27017/db_microservices_exams
   cloud:
     loadbalancer:
       ribbon:

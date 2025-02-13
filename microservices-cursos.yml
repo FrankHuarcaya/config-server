@@ -2,7 +2,9 @@ spring:
   application:
     name: microservices-cursos
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/db_microservicios_cursos
+    #url: jdbc:postgresql://host.docker.internal:5432/db_microservicios_cursos
+    url: jdbc:postgresql://localhost:5432/db_microservicios_cursos
+
     username: postgres
     password: admin123
     driver-class-name: org.postgresql.Driver
@@ -19,7 +21,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      #defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 logging:
   level:

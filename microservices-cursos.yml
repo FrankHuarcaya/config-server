@@ -3,7 +3,7 @@ spring:
     name: microservices-cursos
   datasource:
     #url: jdbc:postgresql://host.docker.internal:5432/db_microservicios_cursos
-    url: jdbc:postgresql://localhost:5432/db_microservicios_cursos
+    url: jdbc:postgresql://mongo-payments:5432/db_microservicios_cursos
 
     username: postgres
     password: admin123

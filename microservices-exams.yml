@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       #uri: mongodb://host.docker.internal:27017/db_microservices_exams
-      uri: mongodb://localhost:27017/db_microservices_exams
+      uri: mongodb://mongo-services:27017/db_microservices_exams
 
   cloud:
     loadbalancer:

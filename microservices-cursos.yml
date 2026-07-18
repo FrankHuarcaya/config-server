@@ -2,7 +2,7 @@ spring:
   application:
     name: microservices-cursos
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/db_microservicios_cursos
+    url: jdbc:postgresql://postgres-cursos:5432/db_microservicios_cursos
     #url: jdbc:postgresql://postgres-cursos:5432/db_microservicios_cursos
 
     username: postgres

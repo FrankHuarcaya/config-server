@@ -3,8 +3,8 @@ spring:
     name: microservices-exams
   data:
     mongodb:
-      #uri: mongodb://host.docker.internal:27017/db_microservices_exams
-      uri: mongodb://mongo-services:27017/db_microservices_exams
+      uri: mongodb://host.docker.internal:27017/db_microservices_exams
+      #uri: mongodb://mongo-services:27017/db_microservices_exams
 
   cloud:
     loadbalancer:
@@ -18,8 +18,8 @@ eureka:
 
   client:
     service-url:
-      #defaultZone: http://eureka-server:8761/eureka/
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/
 
 logging:
   level:

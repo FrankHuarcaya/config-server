@@ -1,6 +1,11 @@
 spring:
   application:
     name: microservices-exams
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
   data:
     mongodb:
       ##uri: mongodb://host.docker.internal:27017/db_microservices_exams

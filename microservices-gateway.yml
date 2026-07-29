@@ -43,6 +43,12 @@ spring:
           uri: lb://microservices-payments
           predicates:
             - Path=/api/v1/payments/**
+        # filters:
+        #   - StripPrefix=1
+        - id: microservices-security-auth
+          uri: lb://microservices-security
+          predicates:
+            - Path=/api/v1/auth/**
 
 
 server:
@@ -71,3 +77,6 @@ resilience4j:
         wait-duration-in-open-state: 5s
         permitted-number-of-calls-in-half-open-state: 3
         minimum-number-of-calls: 5
+
+jwt:
+  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY3ODkwYWJjZGVmZ2hpamtsbW5vcA==
